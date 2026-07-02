@@ -1,0 +1,2 @@
+mask_rcnn_vssm_fpn_coco_tiny_s_epoch_12.pth filter=lfs diff=lfs merge=lfs -text
+vssm1_tiny_0230s_ckpt_epoch_264.pth filter=lfs diff=lfs merge=lfs -text

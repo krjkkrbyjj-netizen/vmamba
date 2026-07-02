@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="zhangbc@172.16.11.36:3372 password" filePermissions="511" folderPermissions="511" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="root@172.16.11.33:3368 password">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="zhangbc@172.16.11.36:3372 password">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/exp_zbc/VMamba" local="$PROJECT_DIR$" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath path="/exp_zbc/VMamba/data" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>

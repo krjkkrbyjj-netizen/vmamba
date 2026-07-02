@@ -1,0 +1,1082 @@
+FRAMEWORK:
+  desc: ''
+  sort: 0
+  value: mmengine
+auto_scale_lr/base_batch_size:
+  desc: ''
+  sort: 215
+  value: 16
+auto_scale_lr/enable:
+  desc: ''
+  sort: 214
+  value: true
+backend_args:
+  desc: ''
+  sort: 111
+  value: null
+classes:
+  desc: ''
+  sort: 112
+  value:
+  - pedestrian
+  - people
+  - bicycle
+  - car
+  - van
+  - truck
+  - tricycle
+  - awning-tricycle
+  - bus
+  - motor
+custom_imports/allow_failed_imports:
+  desc: ''
+  sort: 238
+  value: false
+data_root:
+  desc: ''
+  sort: 110
+  value: ./data/dataset_visdrone/
+dataset_type:
+  desc: ''
+  sort: 109
+  value: CocoDataset
+default_hooks/checkpoint/interval:
+  desc: ''
+  sort: 222
+  value: 1
+default_hooks/checkpoint/max_keep_ckpts:
+  desc: ''
+  sort: 223
+  value: 3
+default_hooks/checkpoint/type:
+  desc: ''
+  sort: 221
+  value: CheckpointHook
+default_hooks/logger/interval:
+  desc: ''
+  sort: 219
+  value: 100
+default_hooks/logger/type:
+  desc: ''
+  sort: 218
+  value: LoggerHook
+default_hooks/param_scheduler/type:
+  desc: ''
+  sort: 220
+  value: ParamSchedulerHook
+default_hooks/sampler_seed/type:
+  desc: ''
+  sort: 224
+  value: DistSamplerSeedHook
+default_hooks/timer/type:
+  desc: ''
+  sort: 217
+  value: IterTimerHook
+default_hooks/visualization/type:
+  desc: ''
+  sort: 225
+  value: DetVisualizationHook
+default_scope:
+  desc: ''
+  sort: 216
+  value: mmdet
+depths:
+  desc: ''
+  sort: 20
+  value:
+  - 2
+  - 2
+  - 9
+  - 2
+env_cfg/cudnn_benchmark:
+  desc: ''
+  sort: 226
+  value: false
+env_cfg/dist_cfg/backend:
+  desc: ''
+  sort: 229
+  value: nccl
+env_cfg/mp_cfg/mp_start_method:
+  desc: ''
+  sort: 227
+  value: fork
+env_cfg/mp_cfg/opencv_num_threads:
+  desc: ''
+  sort: 228
+  value: 0
+featmap_strides:
+  desc: ''
+  sort: 55
+  value:
+  - 4
+  - 8
+  - 16
+  - 32
+imports:
+  desc: ''
+  sort: 237
+  value:
+  - swanlab.integration.mmengine
+in_channels:
+  desc: ''
+  sort: 31
+  value:
+  - 96
+  - 192
+  - 384
+  - 768
+launcher:
+  desc: ''
+  sort: 247
+  value: pytorch
+load_from:
+  desc: ''
+  sort: 234
+  value: null
+log_level:
+  desc: ''
+  sort: 233
+  value: INFO
+log_processor/by_epoch:
+  desc: ''
+  sort: 232
+  value: true
+log_processor/type:
+  desc: ''
+  sort: 230
+  value: LogProcessor
+log_processor/window_size:
+  desc: ''
+  sort: 231
+  value: 50
+max_epochs:
+  desc: ''
+  sort: 236
+  value: 24
+mean:
+  desc: ''
+  sort: 3
+  value:
+  - 123.675
+  - 116.28
+  - 103.53
+meta_keys:
+  desc: ''
+  sort: 133
+  value:
+  - img_id
+  - img_path
+  - ori_shape
+  - img_shape
+  - scale_factor
+metric:
+  desc: ''
+  sort: 186
+  value:
+  - bbox
+milestones:
+  desc: ''
+  sort: 207
+  value:
+  - 16
+  - 22
+model/backbone/depth:
+  desc: ''
+  sort: 8
+  value: 50
+model/backbone/dims:
+  desc: ''
+  sort: 19
+  value: 96
+model/backbone/downsample_version:
+  desc: ''
+  sort: 25
+  value: v1
+model/backbone/frozen_stages:
+  desc: ''
+  sort: 11
+  value: 1
+model/backbone/init_cfg/checkpoint:
+  desc: ''
+  sort: 17
+  value: torchvision://resnet50
+model/backbone/init_cfg/type:
+  desc: ''
+  sort: 16
+  value: Pretrained
+model/backbone/mlp_ratio:
+  desc: ''
+  sort: 24
+  value: 0.0
+model/backbone/norm_cfg/requires_grad:
+  desc: ''
+  sort: 13
+  value: true
+model/backbone/norm_cfg/type:
+  desc: ''
+  sort: 12
+  value: BN
+model/backbone/norm_eval:
+  desc: ''
+  sort: 14
+  value: true
+model/backbone/num_stages:
+  desc: ''
+  sort: 9
+  value: 4
+model/backbone/patchembed_version:
+  desc: ''
+  sort: 26
+  value: v1
+model/backbone/pretrained:
+  desc: ''
+  sort: 18
+  value: /root/autodl-tmp/vmamba/detection/work_dirs/cross-1/epoch_12.pth
+model/backbone/scan_k:
+  desc: ''
+  sort: 28
+  value: 1
+model/backbone/scan_learnable:
+  desc: ''
+  sort: 29
+  value: false
+model/backbone/scan_type:
+  desc: ''
+  sort: 27
+  value: cross
+model/backbone/ssm_d_state:
+  desc: ''
+  sort: 21
+  value: 16
+model/backbone/ssm_dt_rank:
+  desc: ''
+  sort: 22
+  value: auto
+model/backbone/ssm_ratio:
+  desc: ''
+  sort: 23
+  value: 2.0
+model/backbone/style:
+  desc: ''
+  sort: 15
+  value: pytorch
+model/backbone/type:
+  desc: ''
+  sort: 7
+  value: MM_VSSM
+model/data_preprocessor/bgr_to_rgb:
+  desc: ''
+  sort: 5
+  value: true
+model/data_preprocessor/pad_size_divisor:
+  desc: ''
+  sort: 6
+  value: 32
+model/data_preprocessor/type:
+  desc: ''
+  sort: 2
+  value: DetDataPreprocessor
+model/neck/num_outs:
+  desc: ''
+  sort: 33
+  value: 5
+model/neck/out_channels:
+  desc: ''
+  sort: 32
+  value: 256
+model/neck/type:
+  desc: ''
+  sort: 30
+  value: FPN
+model/roi_head/bbox_head/bbox_coder/type:
+  desc: ''
+  sort: 61
+  value: DeltaXYWHBBoxCoder
+model/roi_head/bbox_head/fc_out_channels:
+  desc: ''
+  sort: 58
+  value: 1024
+model/roi_head/bbox_head/in_channels:
+  desc: ''
+  sort: 57
+  value: 256
+model/roi_head/bbox_head/loss_bbox/loss_weight:
+  desc: ''
+  sort: 67
+  value: 1.0
+model/roi_head/bbox_head/loss_bbox/type:
+  desc: ''
+  sort: 66
+  value: L1Loss
+model/roi_head/bbox_head/loss_cls/loss_weight:
+  desc: ''
+  sort: 65
+  value: 1.0
+model/roi_head/bbox_head/loss_cls/type:
+  desc: ''
+  sort: 63
+  value: CrossEntropyLoss
+model/roi_head/bbox_head/loss_cls/use_sigmoid:
+  desc: ''
+  sort: 64
+  value: false
+model/roi_head/bbox_head/num_classes:
+  desc: ''
+  sort: 60
+  value: 10
+model/roi_head/bbox_head/reg_class_agnostic:
+  desc: ''
+  sort: 62
+  value: false
+model/roi_head/bbox_head/roi_feat_size:
+  desc: ''
+  sort: 59
+  value: 7
+model/roi_head/bbox_head/type:
+  desc: ''
+  sort: 56
+  value: Shared2FCBBoxHead
+model/roi_head/bbox_roi_extractor/out_channels:
+  desc: ''
+  sort: 54
+  value: 256
+model/roi_head/bbox_roi_extractor/roi_layer/output_size:
+  desc: ''
+  sort: 52
+  value: 7
+model/roi_head/bbox_roi_extractor/roi_layer/sampling_ratio:
+  desc: ''
+  sort: 53
+  value: 0
+model/roi_head/bbox_roi_extractor/roi_layer/type:
+  desc: ''
+  sort: 51
+  value: RoIAlign
+model/roi_head/bbox_roi_extractor/type:
+  desc: ''
+  sort: 50
+  value: SingleRoIExtractor
+model/roi_head/type:
+  desc: ''
+  sort: 49
+  value: StandardRoIHead
+model/rpn_head/anchor_generator/type:
+  desc: ''
+  sort: 37
+  value: AnchorGenerator
+model/rpn_head/bbox_coder/type:
+  desc: ''
+  sort: 41
+  value: DeltaXYWHBBoxCoder
+model/rpn_head/feat_channels:
+  desc: ''
+  sort: 36
+  value: 256
+model/rpn_head/in_channels:
+  desc: ''
+  sort: 35
+  value: 256
+model/rpn_head/loss_bbox/loss_weight:
+  desc: ''
+  sort: 48
+  value: 1.0
+model/rpn_head/loss_bbox/type:
+  desc: ''
+  sort: 47
+  value: L1Loss
+model/rpn_head/loss_cls/loss_weight:
+  desc: ''
+  sort: 46
+  value: 1.0
+model/rpn_head/loss_cls/type:
+  desc: ''
+  sort: 44
+  value: CrossEntropyLoss
+model/rpn_head/loss_cls/use_sigmoid:
+  desc: ''
+  sort: 45
+  value: true
+model/rpn_head/type:
+  desc: ''
+  sort: 34
+  value: RPNHead
+model/test_cfg/rcnn/max_per_img:
+  desc: ''
+  sort: 108
+  value: 100
+model/test_cfg/rcnn/nms/iou_threshold:
+  desc: ''
+  sort: 107
+  value: 0.5
+model/test_cfg/rcnn/nms/type:
+  desc: ''
+  sort: 106
+  value: nms
+model/test_cfg/rcnn/score_thr:
+  desc: ''
+  sort: 105
+  value: 0.05
+model/test_cfg/rpn/max_per_img:
+  desc: ''
+  sort: 101
+  value: 1000
+model/test_cfg/rpn/min_bbox_size:
+  desc: ''
+  sort: 104
+  value: 0
+model/test_cfg/rpn/nms/iou_threshold:
+  desc: ''
+  sort: 103
+  value: 0.7
+model/test_cfg/rpn/nms/type:
+  desc: ''
+  sort: 102
+  value: nms
+model/test_cfg/rpn/nms_pre:
+  desc: ''
+  sort: 100
+  value: 1000
+model/train_cfg/rcnn/assigner/ignore_iof_thr:
+  desc: ''
+  sort: 92
+  value: -1
+model/train_cfg/rcnn/assigner/match_low_quality:
+  desc: ''
+  sort: 91
+  value: false
+model/train_cfg/rcnn/assigner/min_pos_iou:
+  desc: ''
+  sort: 90
+  value: 0.5
+model/train_cfg/rcnn/assigner/neg_iou_thr:
+  desc: ''
+  sort: 89
+  value: 0.5
+model/train_cfg/rcnn/assigner/pos_iou_thr:
+  desc: ''
+  sort: 88
+  value: 0.5
+model/train_cfg/rcnn/assigner/type:
+  desc: ''
+  sort: 87
+  value: MaxIoUAssigner
+model/train_cfg/rcnn/debug:
+  desc: ''
+  sort: 99
+  value: false
+model/train_cfg/rcnn/pos_weight:
+  desc: ''
+  sort: 98
+  value: -1
+model/train_cfg/rcnn/sampler/add_gt_as_proposals:
+  desc: ''
+  sort: 97
+  value: true
+model/train_cfg/rcnn/sampler/neg_pos_ub:
+  desc: ''
+  sort: 96
+  value: -1
+model/train_cfg/rcnn/sampler/num:
+  desc: ''
+  sort: 94
+  value: 512
+model/train_cfg/rcnn/sampler/pos_fraction:
+  desc: ''
+  sort: 95
+  value: 0.25
+model/train_cfg/rcnn/sampler/type:
+  desc: ''
+  sort: 93
+  value: RandomSampler
+model/train_cfg/rpn/allowed_border:
+  desc: ''
+  sort: 79
+  value: -1
+model/train_cfg/rpn/assigner/ignore_iof_thr:
+  desc: ''
+  sort: 73
+  value: -1
+model/train_cfg/rpn/assigner/match_low_quality:
+  desc: ''
+  sort: 72
+  value: true
+model/train_cfg/rpn/assigner/min_pos_iou:
+  desc: ''
+  sort: 71
+  value: 0.3
+model/train_cfg/rpn/assigner/neg_iou_thr:
+  desc: ''
+  sort: 70
+  value: 0.3
+model/train_cfg/rpn/assigner/pos_iou_thr:
+  desc: ''
+  sort: 69
+  value: 0.7
+model/train_cfg/rpn/assigner/type:
+  desc: ''
+  sort: 68
+  value: MaxIoUAssigner
+model/train_cfg/rpn/debug:
+  desc: ''
+  sort: 81
+  value: false
+model/train_cfg/rpn/pos_weight:
+  desc: ''
+  sort: 80
+  value: -1
+model/train_cfg/rpn/sampler/add_gt_as_proposals:
+  desc: ''
+  sort: 78
+  value: false
+model/train_cfg/rpn/sampler/neg_pos_ub:
+  desc: ''
+  sort: 77
+  value: -1
+model/train_cfg/rpn/sampler/num:
+  desc: ''
+  sort: 75
+  value: 256
+model/train_cfg/rpn/sampler/pos_fraction:
+  desc: ''
+  sort: 76
+  value: 0.5
+model/train_cfg/rpn/sampler/type:
+  desc: ''
+  sort: 74
+  value: RandomSampler
+model/train_cfg/rpn_proposal/max_per_img:
+  desc: ''
+  sort: 83
+  value: 1000
+model/train_cfg/rpn_proposal/min_bbox_size:
+  desc: ''
+  sort: 86
+  value: 0
+model/train_cfg/rpn_proposal/nms/iou_threshold:
+  desc: ''
+  sort: 85
+  value: 0.7
+model/train_cfg/rpn_proposal/nms/type:
+  desc: ''
+  sort: 84
+  value: nms
+model/train_cfg/rpn_proposal/nms_pre:
+  desc: ''
+  sort: 82
+  value: 2000
+model/type:
+  desc: ''
+  sort: 1
+  value: FasterRCNN
+optim_wrapper/optimizer/lr:
+  desc: ''
+  sort: 211
+  value: 0.02
+optim_wrapper/optimizer/momentum:
+  desc: ''
+  sort: 212
+  value: 0.9
+optim_wrapper/optimizer/type:
+  desc: ''
+  sort: 210
+  value: SGD
+optim_wrapper/optimizer/weight_decay:
+  desc: ''
+  sort: 213
+  value: 0.0001
+optim_wrapper/type:
+  desc: ''
+  sort: 209
+  value: OptimWrapper
+out_indices:
+  desc: ''
+  sort: 10
+  value:
+  - 0
+  - 1
+  - 2
+  - 3
+palette:
+  desc: ''
+  sort: 113
+  value:
+  - - 220
+    - 20
+    - 60
+  - - 119
+    - 11
+    - 32
+  - - 0
+    - 0
+    - 142
+  - - 0
+    - 0
+    - 230
+  - - 106
+    - 0
+    - 228
+  - - 0
+    - 60
+    - 100
+  - - 0
+    - 80
+    - 100
+  - - 0
+    - 0
+    - 70
+  - - 0
+    - 0
+    - 192
+  - - 250
+    - 170
+    - 30
+param_scheduler[0]/begin:
+  desc: ''
+  sort: 201
+  value: 0
+param_scheduler[0]/by_epoch:
+  desc: ''
+  sort: 200
+  value: false
+param_scheduler[0]/end:
+  desc: ''
+  sort: 202
+  value: 500
+param_scheduler[0]/start_factor:
+  desc: ''
+  sort: 199
+  value: 0.001
+param_scheduler[0]/type:
+  desc: ''
+  sort: 198
+  value: LinearLR
+param_scheduler[1]/begin:
+  desc: ''
+  sort: 204
+  value: 0
+param_scheduler[1]/by_epoch:
+  desc: ''
+  sort: 206
+  value: true
+param_scheduler[1]/end:
+  desc: ''
+  sort: 205
+  value: 24
+param_scheduler[1]/gamma:
+  desc: ''
+  sort: 208
+  value: 0.1
+param_scheduler[1]/type:
+  desc: ''
+  sort: 203
+  value: MultiStepLR
+pipeline[0]/backend_args:
+  desc: ''
+  sort: 147
+  value: null
+pipeline[0]/type:
+  desc: ''
+  sort: 146
+  value: LoadImageFromFile
+pipeline[1]/keep_ratio:
+  desc: ''
+  sort: 168
+  value: true
+pipeline[1]/type:
+  desc: ''
+  sort: 148
+  value: Resize
+pipeline[1]/with_bbox:
+  desc: ''
+  sort: 149
+  value: true
+pipeline[1]/with_mask:
+  desc: ''
+  sort: 150
+  value: false
+pipeline[2]/keep_ratio:
+  desc: ''
+  sort: 152
+  value: true
+pipeline[2]/type:
+  desc: ''
+  sort: 151
+  value: LoadAnnotations
+pipeline[2]/with_bbox:
+  desc: ''
+  sort: 169
+  value: true
+pipeline[2]/with_mask:
+  desc: ''
+  sort: 170
+  value: false
+pipeline[3]/prob:
+  desc: ''
+  sort: 154
+  value: 0.5
+pipeline[3]/type:
+  desc: ''
+  sort: 153
+  value: PackDetInputs
+pipeline[4]/type:
+  desc: ''
+  sort: 155
+  value: PackDetInputs
+ratios:
+  desc: ''
+  sort: 39
+  value:
+  - 0.5
+  - 1.0
+  - 2.0
+resume:
+  desc: ''
+  sort: 235
+  value: false
+scale:
+  desc: ''
+  sort: 120
+  value:
+  - 1000
+  - 640
+scales:
+  desc: ''
+  sort: 38
+  value:
+  - 8
+std:
+  desc: ''
+  sort: 4
+  value:
+  - 58.395
+  - 57.12
+  - 57.375
+strides:
+  desc: ''
+  sort: 40
+  value:
+  - 4
+  - 8
+  - 16
+  - 32
+  - 64
+target_means:
+  desc: ''
+  sort: 42
+  value:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+target_stds:
+  desc: ''
+  sort: 43
+  value:
+  - 0.1
+  - 0.1
+  - 0.2
+  - 0.2
+test_cfg/type:
+  desc: ''
+  sort: 197
+  value: TestLoop
+test_dataloader/batch_size:
+  desc: ''
+  sort: 172
+  value: 1
+test_dataloader/dataset/ann_file:
+  desc: ''
+  sort: 180
+  value: VisDrone2019-DET-val/annotations/val.json
+test_dataloader/dataset/backend_args:
+  desc: ''
+  sort: 183
+  value: null
+test_dataloader/dataset/data_prefix/img:
+  desc: ''
+  sort: 181
+  value: VisDrone2019-DET-val/images/
+test_dataloader/dataset/data_root:
+  desc: ''
+  sort: 179
+  value: ./data/dataset_visdrone/
+test_dataloader/dataset/test_mode:
+  desc: ''
+  sort: 182
+  value: true
+test_dataloader/dataset/type:
+  desc: ''
+  sort: 178
+  value: CocoDataset
+test_dataloader/drop_last:
+  desc: ''
+  sort: 175
+  value: false
+test_dataloader/num_workers:
+  desc: ''
+  sort: 173
+  value: 2
+test_dataloader/persistent_workers:
+  desc: ''
+  sort: 174
+  value: true
+test_dataloader/sampler/shuffle:
+  desc: ''
+  sort: 177
+  value: false
+test_dataloader/sampler/type:
+  desc: ''
+  sort: 176
+  value: DefaultSampler
+test_evaluator/ann_file:
+  desc: ''
+  sort: 190
+  value: ./data/dataset_visdrone/VisDrone2019-DET-val/annotations/val.json
+test_evaluator/backend_args:
+  desc: ''
+  sort: 192
+  value: null
+test_evaluator/format_only:
+  desc: ''
+  sort: 191
+  value: false
+test_evaluator/type:
+  desc: ''
+  sort: 189
+  value: CocoMetric
+test_pipeline[0]/backend_args:
+  desc: ''
+  sort: 126
+  value: null
+test_pipeline[0]/type:
+  desc: ''
+  sort: 125
+  value: LoadImageFromFile
+test_pipeline[1]/keep_ratio:
+  desc: ''
+  sort: 128
+  value: true
+test_pipeline[1]/type:
+  desc: ''
+  sort: 127
+  value: Resize
+test_pipeline[2]/type:
+  desc: ''
+  sort: 129
+  value: LoadAnnotations
+test_pipeline[2]/with_bbox:
+  desc: ''
+  sort: 130
+  value: true
+test_pipeline[2]/with_mask:
+  desc: ''
+  sort: 131
+  value: false
+test_pipeline[3]/type:
+  desc: ''
+  sort: 132
+  value: PackDetInputs
+train_cfg/max_epochs:
+  desc: ''
+  sort: 194
+  value: 24
+train_cfg/type:
+  desc: ''
+  sort: 193
+  value: EpochBasedTrainLoop
+train_cfg/val_interval:
+  desc: ''
+  sort: 195
+  value: 1
+train_dataloader/batch_sampler/type:
+  desc: ''
+  sort: 139
+  value: AspectRatioBatchSampler
+train_dataloader/batch_size:
+  desc: ''
+  sort: 134
+  value: 2
+train_dataloader/dataset/ann_file:
+  desc: ''
+  sort: 142
+  value: VisDrone2019-DET-train/annotations/train.json
+train_dataloader/dataset/backend_args:
+  desc: ''
+  sort: 156
+  value: null
+train_dataloader/dataset/data_prefix/img:
+  desc: ''
+  sort: 143
+  value: VisDrone2019-DET-train/images/
+train_dataloader/dataset/data_root:
+  desc: ''
+  sort: 141
+  value: ./data/dataset_visdrone/
+train_dataloader/dataset/filter_cfg/filter_empty_gt:
+  desc: ''
+  sort: 144
+  value: true
+train_dataloader/dataset/filter_cfg/min_size:
+  desc: ''
+  sort: 145
+  value: 32
+train_dataloader/dataset/type:
+  desc: ''
+  sort: 140
+  value: CocoDataset
+train_dataloader/num_workers:
+  desc: ''
+  sort: 135
+  value: 4
+train_dataloader/persistent_workers:
+  desc: ''
+  sort: 136
+  value: true
+train_dataloader/sampler/shuffle:
+  desc: ''
+  sort: 138
+  value: true
+train_dataloader/sampler/type:
+  desc: ''
+  sort: 137
+  value: DefaultSampler
+train_pipeline[0]/backend_args:
+  desc: ''
+  sort: 115
+  value: null
+train_pipeline[0]/type:
+  desc: ''
+  sort: 114
+  value: LoadImageFromFile
+train_pipeline[1]/type:
+  desc: ''
+  sort: 116
+  value: LoadAnnotations
+train_pipeline[1]/with_bbox:
+  desc: ''
+  sort: 117
+  value: true
+train_pipeline[1]/with_mask:
+  desc: ''
+  sort: 118
+  value: false
+train_pipeline[2]/keep_ratio:
+  desc: ''
+  sort: 121
+  value: true
+train_pipeline[2]/type:
+  desc: ''
+  sort: 119
+  value: Resize
+train_pipeline[3]/prob:
+  desc: ''
+  sort: 123
+  value: 0.5
+train_pipeline[3]/type:
+  desc: ''
+  sort: 122
+  value: RandomFlip
+train_pipeline[4]/type:
+  desc: ''
+  sort: 124
+  value: PackDetInputs
+val_cfg/type:
+  desc: ''
+  sort: 196
+  value: ValLoop
+val_dataloader/batch_size:
+  desc: ''
+  sort: 157
+  value: 1
+val_dataloader/dataset/ann_file:
+  desc: ''
+  sort: 165
+  value: VisDrone2019-DET-val/annotations/val.json
+val_dataloader/dataset/backend_args:
+  desc: ''
+  sort: 171
+  value: null
+val_dataloader/dataset/data_prefix/img:
+  desc: ''
+  sort: 166
+  value: VisDrone2019-DET-val/images/
+val_dataloader/dataset/data_root:
+  desc: ''
+  sort: 164
+  value: ./data/dataset_visdrone/
+val_dataloader/dataset/test_mode:
+  desc: ''
+  sort: 167
+  value: true
+val_dataloader/dataset/type:
+  desc: ''
+  sort: 163
+  value: CocoDataset
+val_dataloader/drop_last:
+  desc: ''
+  sort: 160
+  value: false
+val_dataloader/num_workers:
+  desc: ''
+  sort: 158
+  value: 2
+val_dataloader/persistent_workers:
+  desc: ''
+  sort: 159
+  value: true
+val_dataloader/sampler/shuffle:
+  desc: ''
+  sort: 162
+  value: false
+val_dataloader/sampler/type:
+  desc: ''
+  sort: 161
+  value: DefaultSampler
+val_evaluator/ann_file:
+  desc: ''
+  sort: 185
+  value: ./data/dataset_visdrone/VisDrone2019-DET-val/annotations/val.json
+val_evaluator/backend_args:
+  desc: ''
+  sort: 188
+  value: null
+val_evaluator/format_only:
+  desc: ''
+  sort: 187
+  value: false
+val_evaluator/type:
+  desc: ''
+  sort: 184
+  value: CocoMetric
+vis_backends[0]/type:
+  desc: ''
+  sort: 239
+  value: LocalVisBackend
+vis_backends[1]/init_kwargs/description:
+  desc: ''
+  sort: 243
+  value: cross的不同san_k实验，当前是1
+vis_backends[1]/init_kwargs/experiment_name:
+  desc: ''
+  sort: 242
+  value: crossk1_bs2_sgd0.02
+vis_backends[1]/init_kwargs/project:
+  desc: ''
+  sort: 241
+  value: mamba_visdrone
+vis_backends[1]/type:
+  desc: ''
+  sort: 240
+  value: SwanlabVisBackend
+visualizer/name:
+  desc: ''
+  sort: 245
+  value: visualizer
+visualizer/type:
+  desc: ''
+  sort: 244
+  value: DetLocalVisualizer
+work_dir:
+  desc: ''
+  sort: 246
+  value: ''
