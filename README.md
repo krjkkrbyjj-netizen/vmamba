@@ -1,5 +1,7 @@
-Dataset Information
-All datasets are third-party benchmarks. Users must download them from the official sources and comply with the respective licenses. This repository does NOT redistribute any dataset.
+## Data Availability
+The unified disentanglement framework and all source code supporting the findings of this study are permanently archived at Zenodo: https://doi.org/10.5281/zenodo.21783278
+
+The codebase is also available on GitHub: https://github.com/krjkkrbyjj-netizen/vmamba
 1. PASCAL VOC 2007 & 2012 (2D Detection)
 •
 Source: http://host.robots.ox.ac.uk/pascal/VOC/
