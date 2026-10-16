@@ -38,7 +38,7 @@ def cross_scan1b1_fwd(x: torch.Tensor, in_channel_first=True, out_channel_first=
     if in_channel_first:
         B, _, C, H, W = x.shape   #(B, K, C, H, W)
         if scans == 0:
-            #===========在第一个维度下，独立变换x的每个特征图(B, C, H, W)
+            #=========== Transform each feature map of x independently along the first dimension (B, C, H, W)
             y = torch.stack([
                 x[:, 0].flatten(2, 3),
                 x[:, 1].transpose(dim0=2, dim1=3).flatten(2, 3),
@@ -127,7 +127,7 @@ def cross_merge1b1_fwd(y: torch.Tensor, in_channel_first=True, out_channel_first
     return y
 
 
-#====================取消 one_by_one 和 scan , 默认 in_channel_first=True, out_channel_first=True==========================
+#==================== Remove one_by_one and scan; default in_channel_first=True, out_channel_first=True ==========================
 class CrossScanF(torch.autograd.Function):
     @staticmethod
     def forward(ctx, x: torch.Tensor, in_channel_first=True, out_channel_first=True):
@@ -218,11 +218,11 @@ def triton_cross_scan_flex(
     # scans = 0 # 0 cross scan, 1 unidirectional, 2 bidirectional
 
     i_hw, i_c, i_b = tl.program_id(0), tl.program_id(1), tl.program_id(2)
-    i_h, i_w = (i_hw // NW), (i_hw % NW)      #第几行，第几列，这里算分块，比如结果是(B, C, NH, HW)
+    i_h, i_w = (i_hw // NW), (i_hw % NW)      # Row and column indices for block partitioning; e.g., result is (B, C, NH, HW)
     _mask_h = (i_h * BH + tl.arange(0, BH)) < DH
     _mask_w = (i_w * BW + tl.arange(0, BW)) < DW
     _mask_hw = _mask_h[:, None] & _mask_w[None, :]
-    _for_C = min(DC - i_c * BC, BC)         #计算当前线程块（thread block）实际需要处理的通道数量。
+    _for_C = min(DC - i_c * BC, BC)         # Compute the actual number of channels to be processed by the current thread block.
 
     pos_h = (i_h * BH + tl.arange(0, BH)[:, None])
     pos_w = (i_w * BW + tl.arange(0, BW)[None, :])
@@ -250,18 +250,18 @@ def triton_cross_scan_flex(
     _tmp1 = DC * DH * DW
 
     y_ptr_base = y + i_b * 4 * _tmp1 + (i_c * BC * DH * DW if y_layout == 0 else i_c * BC)
-    if y_layout == 0:       #（B, 4, C, H, W）
+    if y_layout == 0:       # (B, 4, C, H, W)
         p_y1 = y_ptr_base + HWRoute0
         p_y2 = y_ptr_base + _tmp1 + HWRoute1
         p_y3 = y_ptr_base + 2 * _tmp1 + HWRoute2
         p_y4 = y_ptr_base + 3 * _tmp1 + HWRoute3
-    else:                   #(B, H, W, 4, C)
+    else:                   # (B, H, W, 4, C)
         p_y1 = y_ptr_base + HWRoute0 * 4 * DC
         p_y2 = y_ptr_base + DC + HWRoute1 * 4 * DC
         p_y3 = y_ptr_base + 2 * DC + HWRoute2 * 4 * DC
         p_y4 = y_ptr_base + 3 * DC + HWRoute3 * 4 * DC
 
-    if onebyone == 0:           #(B, C, H, W)|(B, H, W, C)
+    if onebyone == 0:           # (B, C, H, W)|(B, H, W, C)
         x_ptr_base = x + i_b * _tmp1 + (i_c * BC * DH * DW if x_layout == 0 else i_c * BC)
         if x_layout == 0:
             p_x = x_ptr_base + HWRoute0
@@ -287,7 +287,7 @@ def triton_cross_scan_flex(
                 _y4 = tl.load(p_y4 + _idx_y, mask=_mask_hw)
                 tl.store(p_x + _idx_x, _y1 + _y2 + _y3 + _y4, mask=_mask_hw)
 
-    else:           #(B, 4, C, H, W)|(B, H, W, 4, C)
+    else:           # (B, 4, C, H, W)|(B, H, W, 4, C)
         x_ptr_base = x + i_b * 4 * _tmp1 + (i_c * BC * DH * DW if x_layout == 0 else i_c * BC)
         if x_layout == 0:
             p_x1 = x_ptr_base + HWRoute0
@@ -621,6 +621,3 @@ class CHECK:
 if __name__ == "__main__":
     CHECK.check_csm_scan3()
     CHECK.check_csm_triton()
-
-
-
