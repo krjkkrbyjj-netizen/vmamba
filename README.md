@@ -10,7 +10,6 @@ We introduce a **unified disentanglement framework** for Vision Mamba-based obje
 - **Patch granularity** is the dominant factor governing detection efficacy, overshadowing the marginal gains from sophisticated traversal orders.
 - Under constrained computational budgets, prioritizing finer patch granularity over complex multi-scan designs yields superior performance.
 
-All source-code comments (including `simple_triton.py`) are written in English. The codebase is permanently archived on Zenodo: [10.5281/zenodo.21783278](https://doi.org/10.5281/zenodo.21783278).
 
 ## Dataset Information
 
