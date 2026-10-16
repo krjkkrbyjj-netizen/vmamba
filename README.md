@@ -1,3 +1,35 @@
+# VMamba: Robustness of Scanning Sequence in Visual Mamba-Based Object Detection
+
+## Description
+
+This repository contains the official implementation of the paper **"Robustness of Scanning Sequence in Visual Mamba-Based Object Detection Model"** (submitted to PeerJ Computer Science). 
+
+We introduce a **unified disentanglement framework** for Vision Mamba-based object detection that explicitly separates **scanning topology** from **sequence multiplicity**. Through extensive controlled experiments on PASCAL VOC (2D detection), KITTI (3D detection), ImageNet-1K (classification), and VOC2012 (semantic segmentation), we demonstrate that:
+
+- Detection performance remains consistently robust across five canonical scanning topologies (raster, cross, zigzag, slanted, spiral) and varied sequence counts (K ∈ {1, 2, 4, 8}).
+- **Patch granularity** is the dominant factor governing detection efficacy, overshadowing the marginal gains from sophisticated traversal orders.
+- Under constrained computational budgets, prioritizing finer patch granularity over complex multi-scan designs yields superior performance.
+
+All source-code comments (including `simple_triton.py`) are written in English. The codebase is permanently archived on Zenodo: [10.5281/zenodo.21783278](https://doi.org/10.5281/zenodo.21783278).
+
+## Dataset Information
+
+| Dataset | Task | Source | License |
+|---------|------|--------|---------|
+| PASCAL VOC 2007 & 2012 | 2D Detection | [Official Site](http://host.robots.ox.ac.uk/pascal/VOC/) | Challenge usage terms; images from Flickr |
+| KITTI Object Detection | 3D Detection | [Official Site](https://www.cvlibs.net/datasets/kitti/) | CC BY-NC-SA 3.0 |
+| ImageNet-1K | Classification Pretraining | [Official Site](https://image-net.org/challenges/LSVRC/2012/) | ImageNet Terms of Access (non-commercial research) |
+| PASCAL VOC2012 | Semantic Segmentation | [Official Site](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/) | Challenge usage terms; images from Flickr |
+| VisDrone | Small Object Detection | [Official Site](http://aiskyeye.com/) | Academic license |
+
+**Data Preprocessing:**
+- All images resized to 512×512, normalized with ImageNet statistics (mean [0.485, 0.456, 0.406], std [0.229, 0.224, 0.225]).
+- Bounding boxes scaled proportionally to resized dimensions.
+- KITTI point clouds voxelized with grid size 0.05m×0.05m×0.05m, filtered to range [-3,1]m height, [-40,40]m width, [0,70]m depth.
+- VOC2012 segmentation: random crop to 512×512 (training), center crop (inference).
+
+## Code Information
+
 ## Data Availability
 The unified disentanglement framework and all source code supporting the findings of this study are permanently archived at Zenodo: https://doi.org/10.5281/zenodo.21783278
 
